@@ -77,10 +77,14 @@
                     <navigationItem key="navigationItem" id="ISq-GF-g3l">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fcw-qa-wcw">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="addCityAction:" destination="BYZ-38-t0r" id="S99-Ng-ZXj"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addCity" destination="fcw-qa-wcw" id="Krg-yO-DVs"/>
                         <outlet property="tableView" destination="yn3-t2-6Qm" id="f8C-pR-Ils"/>
                     </connections>
                 </viewController>

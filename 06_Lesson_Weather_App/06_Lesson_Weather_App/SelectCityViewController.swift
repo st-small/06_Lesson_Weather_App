@@ -12,6 +12,12 @@ import UIKit
 final class SelectCityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    
+    @IBAction func addCityAction(_ sender: Any) {
+        
+        self.addCity()
+    }
+    
     var citiesArray: [String] = ["Kiev", "Moscow", "London"]
     
     override func viewDidLoad() {
@@ -57,5 +63,18 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
             citiesArray.remove(at: indexPath.row)
             tableView.reloadData()
         }
+    }
+    
+}
+
+
+extension SelectCityViewController {
+    
+    func addCity() {
+        
+        let alert = UIAlertController(title: "Помощник", message: "Для удобного переключения между городами, тапните по экрану!", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
     }
 }
