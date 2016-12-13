@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		522B01691E00782F00419D35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01681E00782F00419D35 /* AppDelegate.swift */; };
-		522B016B1E00782F00419D35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B016A1E00782F00419D35 /* ViewController.swift */; };
 		522B016E1E00782F00419D35 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522B016C1E00782F00419D35 /* Main.storyboard */; };
 		522B01701E00782F00419D35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 522B016F1E00782F00419D35 /* Assets.xcassets */; };
 		522B01731E00782F00419D35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 522B01711E00782F00419D35 /* LaunchScreen.storyboard */; };
 		522B017E1E00782F00419D35 /* _6_Lesson_Weather_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B017D1E00782F00419D35 /* _6_Lesson_Weather_AppTests.swift */; };
 		522B01891E00782F00419D35 /* _6_Lesson_Weather_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01881E00782F00419D35 /* _6_Lesson_Weather_AppUITests.swift */; };
+		522B01971E0084FF00419D35 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01961E0084FF00419D35 /* SelectCityViewController.swift */; };
+		522B019A1E0085F500419D35 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01991E0085F500419D35 /* MyCustomCell.swift */; };
 		F035FDAB04D81F8EDBA8802E /* Pods_06_Lesson_Weather_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF59163BA39D4E4E09761CA0 /* Pods_06_Lesson_Weather_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +39,6 @@
 		214E75AB950443EDE3832C3A /* Pods-06_Lesson_Weather_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06_Lesson_Weather_App.release.xcconfig"; path = "Pods/Target Support Files/Pods-06_Lesson_Weather_App/Pods-06_Lesson_Weather_App.release.xcconfig"; sourceTree = "<group>"; };
 		522B01651E00782F00419D35 /* 06_Lesson_Weather_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 06_Lesson_Weather_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		522B01681E00782F00419D35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		522B016A1E00782F00419D35 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		522B016D1E00782F00419D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		522B016F1E00782F00419D35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		522B01721E00782F00419D35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +49,8 @@
 		522B01841E00782F00419D35 /* 06_Lesson_Weather_AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 06_Lesson_Weather_AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		522B01881E00782F00419D35 /* _6_Lesson_Weather_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _6_Lesson_Weather_AppUITests.swift; sourceTree = "<group>"; };
 		522B018A1E00782F00419D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		522B01961E0084FF00419D35 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
+		522B01991E0085F500419D35 /* MyCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		8D05B442A2F9B07788E0F2FA /* Pods-06_Lesson_Weather_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06_Lesson_Weather_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-06_Lesson_Weather_App/Pods-06_Lesson_Weather_App.debug.xcconfig"; sourceTree = "<group>"; };
 		AF59163BA39D4E4E09761CA0 /* Pods_06_Lesson_Weather_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_06_Lesson_Weather_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -105,7 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				522B01681E00782F00419D35 /* AppDelegate.swift */,
-				522B016A1E00782F00419D35 /* ViewController.swift */,
+				522B019B1E0085F900419D35 /* Models */,
+				522B01981E00850C00419D35 /* Views */,
 				522B016C1E00782F00419D35 /* Main.storyboard */,
 				522B016F1E00782F00419D35 /* Assets.xcassets */,
 				522B01711E00782F00419D35 /* LaunchScreen.storyboard */,
@@ -130,6 +133,22 @@
 				522B018A1E00782F00419D35 /* Info.plist */,
 			);
 			path = 06_Lesson_Weather_AppUITests;
+			sourceTree = "<group>";
+		};
+		522B01981E00850C00419D35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				522B01961E0084FF00419D35 /* SelectCityViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		522B019B1E0085F900419D35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				522B01991E0085F500419D35 /* MyCustomCell.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		6161AB245BF0D32A02B91F8C /* Pods */ = {
@@ -312,7 +331,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		988586684797AF367B42EC50 /* [CP] Embed Pods Frameworks */ = {
@@ -337,8 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				522B016B1E00782F00419D35 /* ViewController.swift in Sources */,
+				522B019A1E0085F500419D35 /* MyCustomCell.swift in Sources */,
 				522B01691E00782F00419D35 /* AppDelegate.swift in Sources */,
+				522B01971E0084FF00419D35 /* SelectCityViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +431,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -460,6 +481,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -488,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D05B442A2F9B07788E0F2FA /* Pods-06_Lesson_Weather_App.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = 06_Lesson_Weather_App/Info.plist;
@@ -502,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 214E75AB950443EDE3832C3A /* Pods-06_Lesson_Weather_App.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 3PTYV272Z4;
 				INFOPLIST_FILE = 06_Lesson_Weather_App/Info.plist;
@@ -589,6 +613,7 @@
 				522B018F1E00782F00419D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		522B01901E00782F00419D35 /* Build configuration list for PBXNativeTarget "06_Lesson_Weather_AppTests" */ = {
 			isa = XCConfigurationList;
@@ -597,6 +622,7 @@
 				522B01921E00782F00419D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		522B01931E00782F00419D35 /* Build configuration list for PBXNativeTarget "06_Lesson_Weather_AppUITests" */ = {
 			isa = XCConfigurationList;
@@ -605,6 +631,7 @@
 				522B01951E00782F00419D35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
