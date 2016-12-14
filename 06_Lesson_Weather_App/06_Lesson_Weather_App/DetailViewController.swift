@@ -22,31 +22,30 @@ final class DetailViewController: UIViewController {
     
     var weather = DataModel()
     var city_name : String = ""
+    var data : Results<WeatherData>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //print(Realm.Configuration.defaultConfiguration.fileURL!)
-        //self.weather = manager.fetchingData()
-        
         let manager: ComplexManager = ComplexManager()
-        let downloadJSON = manager.loadCityDB(city: city_name)
+        self.data = manager.loadCityDB(city: city_name)
         
-        print("JSON", downloadJSON)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-            self.updateUI()
-        })
-        
-        if downloadJSON[0].tempList.count > 0 {
+        if self.data.count > 0 {
             
-            self.weather = downloadJSON[0].tempList[0]
-            print("JSON", downloadJSON)
-        
+            self.weather = self.data[0].tempList.last!
+            
+        } else {
+            
+            self.weather = DataModel()
         }
         
-        print("пусто пусто пусто")
-
+        // Define identifier
+        let notificationName = Notification.Name("LOAD_FROM_SERVER")
+        
+        // Register to receive notification
+        NotificationCenter.default.addObserver(self, selector: #selector(loadComplete), name: notificationName, object: nil)
+        
+        self.loadComplete()
         
     }
     
@@ -54,8 +53,18 @@ final class DetailViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.updateUI()
-        
+    }
+    
+    func loadComplete() {
+        print("NOTIFICATION")
+        if self.data.count > 0{
+            self.updateUI()
+        }else{
+            print("EMPTY")
+            let alert = UIAlertController(title: "Внимание", message: "У Вас отсутствует доступ к Интернет.\nБаза данных погоды пуста, дождитесь появление Интернета", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func updateUI() {
@@ -79,6 +88,8 @@ final class DetailViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
+    
+    
 
     
 }

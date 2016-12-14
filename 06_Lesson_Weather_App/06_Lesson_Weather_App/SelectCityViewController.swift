@@ -8,10 +8,13 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 final class SelectCityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    
+    let realm = try! Realm()
     
     var citiesArray: [String] = []
     var citiesSet: Set <String> = ["Kiev", "Moscow", "London"]
@@ -25,12 +28,22 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
         // delegate and data source
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let dataBase = manager.loadDB()
+        
+        for tmp in dataBase {
+            
+            self.citiesArray.append(tmp.city_name)
+            //print(tmp.city_name)
+        }
+        
+        self.citiesArray = self.citiesArray.sorted()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.citiesArray = self.citiesSet.map ({ String($0) })
     }
     
     // number of rows in table view
@@ -54,9 +67,8 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        openViewController(city: citiesArray[indexPath.row])
+        self.openViewController(city: self.citiesArray[indexPath.row])
         
-        //print("You tapped cell number \(citiesArray[indexPath.row]).")
     }
     
     // methods to delete rows
@@ -66,8 +78,16 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            
+            let city = citiesArray[indexPath.row]
+            let dataByCity = manager.loadCityDB(city: city)
+            
+            try! realm.write {
+                realm.delete(dataByCity)
+            }
+            
             citiesArray.remove(at: indexPath.row)
-            tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
     
@@ -89,24 +109,15 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
                                         
                                         let city = alertCT.textFields![0].text?.capitalized
                                         
-                                        for i in self.citiesArray {
-                                            
-                                            if i == city {
+                                        if !self.citiesArray.contains(city!) {
                                                 
-                                                print("уже есть")
-                                                
-                                            } else {
-                                                
-                                                self.citiesSet.insert(city!)
-                                                
+                                                self.citiesArray.append(city!)
+                                                print(self.citiesArray.count)
                                             }
                                             
-                                            self.citiesArray = self.citiesSet.map ({ String($0) })
                                             self.tableView.reloadData()
                                             
-                                            self.openViewController(city: city!)
-                                            
-                                        }}))
+                                        }))
                                         
         self.present(alertCT, animated: true, completion: nil)
     }
@@ -120,8 +131,3 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     
 }
 
-
-extension SelectCityViewController {
-    
-    
-}

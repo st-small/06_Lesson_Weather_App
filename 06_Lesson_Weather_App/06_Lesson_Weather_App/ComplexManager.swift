@@ -49,6 +49,9 @@ extension ComplexManager {
                     self.realm.add(weather, update: true)
                 }
                 
+                let notificationName = Notification.Name("LOAD_FROM_SERVER")
+                NotificationCenter.default.post(name: notificationName, object: nil)
+                
             case .failure(let error):
                 print(error)
             }
@@ -63,7 +66,18 @@ extension ComplexManager {
     
     func loadCityDB(city: String) -> Results<WeatherData> {
         let data = realm.objects(WeatherData.self).filter("city_name  BEGINSWITH %@", city)
-        //print(data)
+        
+        print(data)
+        
+        if data.count > 0 {
+            
+            return data
+            
+        } else {
+            
+            self.downloadData(town: city)
+        }
+        
         return data
     }
     
