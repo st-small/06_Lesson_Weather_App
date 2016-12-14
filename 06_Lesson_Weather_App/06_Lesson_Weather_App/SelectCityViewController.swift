@@ -112,7 +112,7 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
                                         if !self.citiesArray.contains(city!) {
                                                 
                                                 self.citiesArray.append(city!)
-                                                print(self.citiesArray.count)
+                                                //print(self.citiesArray.count)
                                             }
                                             
                                             self.tableView.reloadData()
