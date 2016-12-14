@@ -15,6 +15,10 @@
 		522B01891E00782F00419D35 /* _6_Lesson_Weather_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01881E00782F00419D35 /* _6_Lesson_Weather_AppUITests.swift */; };
 		522B01971E0084FF00419D35 /* SelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01961E0084FF00419D35 /* SelectCityViewController.swift */; };
 		522B019A1E0085F500419D35 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522B01991E0085F500419D35 /* MyCustomCell.swift */; };
+		573E6DFA1E01515D0087C33D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E6DF91E01515D0087C33D /* DetailViewController.swift */; };
+		573E6DFC1E0152430087C33D /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E6DFB1E0152430087C33D /* DataModel.swift */; };
+		573E6DFE1E0152630087C33D /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E6DFD1E0152630087C33D /* WeatherData.swift */; };
+		573E6E001E0153070087C33D /* ComplexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573E6DFF1E0153070087C33D /* ComplexManager.swift */; };
 		F035FDAB04D81F8EDBA8802E /* Pods_06_Lesson_Weather_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF59163BA39D4E4E09761CA0 /* Pods_06_Lesson_Weather_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		522B018A1E00782F00419D35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		522B01961E0084FF00419D35 /* SelectCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectCityViewController.swift; sourceTree = "<group>"; };
 		522B01991E0085F500419D35 /* MyCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
+		573E6DF91E01515D0087C33D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		573E6DFB1E0152430087C33D /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		573E6DFD1E0152630087C33D /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		573E6DFF1E0153070087C33D /* ComplexManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexManager.swift; sourceTree = "<group>"; };
 		8D05B442A2F9B07788E0F2FA /* Pods-06_Lesson_Weather_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-06_Lesson_Weather_App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-06_Lesson_Weather_App/Pods-06_Lesson_Weather_App.debug.xcconfig"; sourceTree = "<group>"; };
 		AF59163BA39D4E4E09761CA0 /* Pods_06_Lesson_Weather_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_06_Lesson_Weather_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				522B01961E0084FF00419D35 /* SelectCityViewController.swift */,
+				573E6DF91E01515D0087C33D /* DetailViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -147,6 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				522B01991E0085F500419D35 /* MyCustomCell.swift */,
+				573E6DFB1E0152430087C33D /* DataModel.swift */,
+				573E6DFD1E0152630087C33D /* WeatherData.swift */,
+				573E6DFF1E0153070087C33D /* ComplexManager.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -356,9 +368,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				573E6DFC1E0152430087C33D /* DataModel.swift in Sources */,
 				522B019A1E0085F500419D35 /* MyCustomCell.swift in Sources */,
 				522B01691E00782F00419D35 /* AppDelegate.swift in Sources */,
+				573E6E001E0153070087C33D /* ComplexManager.swift in Sources */,
 				522B01971E0084FF00419D35 /* SelectCityViewController.swift in Sources */,
+				573E6DFE1E0152630087C33D /* WeatherData.swift in Sources */,
+				573E6DFA1E01515D0087C33D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

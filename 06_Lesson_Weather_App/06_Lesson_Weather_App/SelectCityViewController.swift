@@ -13,12 +13,9 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     
     @IBOutlet var tableView: UITableView!
     
-    @IBAction func addCityAction(_ sender: Any) {
-        
-        self.addCity()
-    }
-    
-    var citiesArray: [String] = ["Kiev", "Moscow", "London"]
+    var citiesArray: [String] = []
+    var citiesSet: Set <String> = ["Kiev", "Moscow", "London"]
+    let manager: ComplexManager = ComplexManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +25,12 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
         // delegate and data source
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.citiesArray = self.citiesSet.map ({ String($0) })
     }
     
     // number of rows in table view
@@ -50,7 +53,10 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You tapped cell number \(indexPath.row).")
+        
+        openViewController(city: citiesArray[indexPath.row])
+        
+        //print("You tapped cell number \(citiesArray[indexPath.row]).")
     }
     
     // methods to delete rows
@@ -65,16 +71,57 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
         }
     }
     
+   
+    @IBAction func addCityAction(_ sender: UIBarButtonItem) {
+
+        
+        let alertCT = UIAlertController(title: "Добавить город:",
+                                      message: "Введите Ваш город латинскими буквами",
+                                      preferredStyle: UIAlertControllerStyle.alert)
+        
+        alertCT.addTextField { (city: UITextField) in
+            city.placeholder = "Ваш город"
+            city.keyboardType = UIKeyboardType.namePhonePad
+        }
+        
+        alertCT.addAction(UIAlertAction(title: "Добавить",
+                                      style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in
+                                        
+                                        let city = alertCT.textFields![0].text?.capitalized
+                                        
+                                        for i in self.citiesArray {
+                                            
+                                            if i == city {
+                                                
+                                                print("уже есть")
+                                                
+                                            } else {
+                                                
+                                                self.citiesSet.insert(city!)
+                                                
+                                            }
+                                            
+                                            self.citiesArray = self.citiesSet.map ({ String($0) })
+                                            self.tableView.reloadData()
+                                            
+                                            self.openViewController(city: city!)
+                                            
+                                        }}))
+                                        
+        self.present(alertCT, animated: true, completion: nil)
+    }
+    
+    func openViewController(city: String) {
+        
+        let destVC: DetailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        destVC.city_name = city
+        self.present(destVC, animated: true, completion: nil)
+    }
+    
 }
 
 
 extension SelectCityViewController {
     
-    func addCity() {
-        
-        let alert = UIAlertController(title: "Помощник", message: "Для удобного переключения между городами, тапните по экрану!", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "ОК", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
+    
 }
