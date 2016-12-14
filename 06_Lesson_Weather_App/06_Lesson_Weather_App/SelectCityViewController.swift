@@ -16,7 +16,7 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     
     let realm = try! Realm()
     
-    var citiesArray: [String] = []
+    var citiesArray: [String] = ["Kiev", "Moscow", "London"]
     var citiesSet: Set <String> = ["Kiev", "Moscow", "London"]
     let manager: ComplexManager = ComplexManager()
     
@@ -33,11 +33,11 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
         
         for tmp in dataBase {
             
-            self.citiesArray.append(tmp.city_name)
+            self.citiesSet.insert(tmp.city_name)
             //print(tmp.city_name)
         }
         
-        self.citiesArray = self.citiesArray.sorted()
+        self.citiesArray = self.citiesSet.sorted()
         
     }
     
@@ -87,6 +87,7 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
             }
             
             citiesArray.remove(at: indexPath.row)
+            citiesSet.remove(city)
             self.tableView.reloadData()
         }
     }
@@ -109,13 +110,16 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
                                         
                                         let city = alertCT.textFields![0].text?.capitalized
                                         
-                                        if !self.citiesArray.contains(city!) {
+                                        if !self.citiesSet.contains(city!) {
                                                 
-                                                self.citiesArray.append(city!)
+                                                self.citiesSet.insert(city!)
                                                 //print(self.citiesArray.count)
                                             }
-                                            
-                                            self.tableView.reloadData()
+                                        
+                                        self.citiesArray.removeAll()
+                                        self.citiesArray = self.citiesSet.sorted()
+                                        
+                                        self.tableView.reloadData()
                                             
                                         }))
                                         

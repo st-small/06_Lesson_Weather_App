@@ -49,7 +49,7 @@ extension ComplexManager {
                     self.realm.add(weather, update: true)
                 }
                 
-                let notificationName = Notification.Name("LOAD_FROM_SERVER")
+                let notificationName = Notification.Name("LOADING")
                 NotificationCenter.default.post(name: notificationName, object: nil)
                 
             case .failure(let error):
@@ -67,7 +67,7 @@ extension ComplexManager {
     func loadCityDB(city: String) -> Results<WeatherData> {
         let data = realm.objects(WeatherData.self).filter("city_name  BEGINSWITH %@", city)
         
-        print(data)
+        //print(data)
         
         if data.count > 0 {
             
@@ -81,6 +81,24 @@ extension ComplexManager {
         return data
     }
     
-    
+    func isInternetAvailable() -> Bool {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
 
 }

@@ -39,13 +39,12 @@ final class DetailViewController: UIViewController {
             self.weather = DataModel()
         }
         
-        // Define identifier
-        let notificationName = Notification.Name("LOAD_FROM_SERVER")
-        
-        // Register to receive notification
+        // NotifA
+        let notificationName = Notification.Name("LOADING")
+
         NotificationCenter.default.addObserver(self, selector: #selector(loadComplete), name: notificationName, object: nil)
-        
-        self.loadComplete()
+
+        loadComplete()
         
     }
     
@@ -56,15 +55,27 @@ final class DetailViewController: UIViewController {
     }
     
     func loadComplete() {
-        print("NOTIFICATION")
-        if self.data.count > 0{
+        if self.data.count > 0 {
+            self.weather = self.data[0].tempList.last!
             self.updateUI()
-        }else{
-            print("EMPTY")
-            let alert = UIAlertController(title: "Внимание", message: "У Вас отсутствует доступ к Интернет.\nБаза данных погоды пуста, дождитесь появление Интернета", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ок", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            
+            warningAlert(title: "Помощник",
+                         message: "Присутствуют перебои с интернет! Мы делаем все возможное!")
+
         }
+    }
+    
+    private func presentViewController(alert: UIAlertController, animated flag: Bool, completion: (() -> Void)?) -> Void {
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: flag, completion: completion)
+    }
+    func warningAlert(title: String, message: String ){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:  { (action) -> Void in
+        }))
+        //   self.present(alert, animated: true, completion: nil)
+        presentViewController(alert: alert, animated: true, completion: nil)
     }
     
     func updateUI() {
@@ -88,8 +99,5 @@ final class DetailViewController: UIViewController {
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-
     
 }
