@@ -100,4 +100,17 @@ final class DetailViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func openHistoryTableAction(_ sender: UIButton) {
+        
+        openViewController(city: self.city_name)
+    }
+    
+    func openViewController(city: String) {
+        
+        let destVC: HistoryTable = storyboard?.instantiateViewController(withIdentifier: "HistoryTable") as! HistoryTable
+        destVC.city = city
+        self.present(destVC, animated: true, completion: nil)
+    }
+    
 }
