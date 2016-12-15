@@ -27,6 +27,8 @@ final class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
         let manager: ComplexManager = ComplexManager()
         self.data = manager.loadCityDB(city: city_name)
         

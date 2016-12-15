@@ -28,9 +28,9 @@ final class HistoryTable: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        let dataDB = manager.loadCityDB(city: city)
+        let dataDB = manager.loadCityHistoryDB(city: city)
         
-        for tmp in dataDB[0].tempList {
+        for tmp in dataDB {
             
             self.weather = tmp
             

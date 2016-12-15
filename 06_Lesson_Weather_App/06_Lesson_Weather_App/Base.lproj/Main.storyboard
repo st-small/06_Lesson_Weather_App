@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59k-mf-Jgl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="59k-mf-Jgl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B04-ej-Ix2" id="d0p-yq-fG5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ALm-gu-jxB">
@@ -98,7 +98,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="59k-mf-Jgl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="NdG-lu-VTH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NdG-lu-VTH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,7 +128,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="djb-7A-0AX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="djb-7A-0AX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.75294117650000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
@@ -205,12 +205,12 @@
                             <constraint firstItem="U7R-rY-xxG" firstAttribute="top" secondItem="SRg-W0-Hwr" secondAttribute="bottom" constant="50" id="ZMq-ZG-xgE"/>
                             <constraint firstItem="U7R-rY-xxG" firstAttribute="top" secondItem="zXQ-TY-WoK" secondAttribute="bottom" constant="8" id="a3m-p3-Pfd"/>
                             <constraint firstItem="zXQ-TY-WoK" firstAttribute="leading" secondItem="Fny-Wv-ObI" secondAttribute="leading" constant="16" id="af3-oQ-4CA"/>
-                            <constraint firstItem="djb-7A-0AX" firstAttribute="top" secondItem="oKh-wl-Dor" secondAttribute="bottom" constant="-107" id="ax9-0J-cVh"/>
+                            <constraint firstItem="djb-7A-0AX" firstAttribute="top" secondItem="oKh-wl-Dor" secondAttribute="bottom" constant="-63" id="ax9-0J-cVh"/>
                             <constraint firstAttribute="trailing" secondItem="zXQ-TY-WoK" secondAttribute="trailing" constant="16" id="fXl-jT-2Uj"/>
                             <constraint firstItem="SRg-W0-Hwr" firstAttribute="width" secondItem="Fny-Wv-ObI" secondAttribute="height" multiplier="375:667" id="fbN-r8-2Aw"/>
                             <constraint firstItem="SRg-W0-Hwr" firstAttribute="top" secondItem="PlO-6C-bkj" secondAttribute="bottom" constant="-179" id="gfg-b2-h3C"/>
                             <constraint firstItem="Wqo-PB-lN8" firstAttribute="top" secondItem="ofR-A9-vF9" secondAttribute="bottom" constant="37" id="iQ7-av-2cQ"/>
-                            <constraint firstItem="djb-7A-0AX" firstAttribute="top" secondItem="Fny-Wv-ObI" secondAttribute="topMargin" constant="-44" id="ihf-D4-Enf"/>
+                            <constraint firstItem="djb-7A-0AX" firstAttribute="top" secondItem="Fny-Wv-ObI" secondAttribute="topMargin" id="ihf-D4-Enf"/>
                             <constraint firstItem="oKh-wl-Dor" firstAttribute="centerX" secondItem="djb-7A-0AX" secondAttribute="centerX" id="mlc-Vf-KEx"/>
                             <constraint firstItem="ofR-A9-vF9" firstAttribute="leading" secondItem="vyV-9T-n2e" secondAttribute="leading" id="tgl-bf-TXu"/>
                             <constraint firstItem="PlO-6C-bkj" firstAttribute="top" secondItem="oKh-wl-Dor" secondAttribute="bottom" constant="18" id="vs6-8U-yzZ"/>

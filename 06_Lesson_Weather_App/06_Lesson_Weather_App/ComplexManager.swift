@@ -68,6 +68,8 @@ extension ComplexManager {
         let data = realm.objects(WeatherData.self).filter("city_name  BEGINSWITH %@", city)
         
         //print(data)
+        let data2 = realm.objects(DataModel.self).filter("location BEGINSWITH %@", city)
+        print(data2)
         
         if data.count > 0 {
             
@@ -80,6 +82,24 @@ extension ComplexManager {
         
         return data
     }
+    
+    func loadCityHistoryDB(city: String) -> Results<DataModel> {
+        
+        let data2 = realm.objects(DataModel.self).filter("location BEGINSWITH %@", city)
+        print(data2)
+        
+        if data2.count > 0 {
+            
+            return data2
+            
+        } else {
+            
+            self.downloadData(town: city)
+        }
+        
+        return data2
+    }
+
     
     func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()
