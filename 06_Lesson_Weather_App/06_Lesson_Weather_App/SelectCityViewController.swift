@@ -44,6 +44,8 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
     }
     
     // number of rows in table view
@@ -67,8 +69,7 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
     // method to run when table view cell is tapped
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.openViewController(city: self.citiesArray[indexPath.row])
-        
+               
     }
     
     // methods to delete rows
@@ -126,11 +127,13 @@ final class SelectCityViewController: UIViewController, UITableViewDelegate, UIT
         self.present(alertCT, animated: true, completion: nil)
     }
     
-    func openViewController(city: String) {
-        
-        let destVC: DetailViewController = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        destVC.city_name = city
-        self.present(destVC, animated: true, completion: nil)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Detail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destVC: DetailViewController = segue.destination as! DetailViewController
+                destVC.city_name = self.citiesArray[indexPath.row]
+            }
+        }
     }
     
 }

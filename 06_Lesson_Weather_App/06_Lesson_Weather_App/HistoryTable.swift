@@ -23,8 +23,8 @@ final class HistoryTable: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        
+        self.navigationItem.title = "История запросов:"
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -43,6 +43,7 @@ final class HistoryTable: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

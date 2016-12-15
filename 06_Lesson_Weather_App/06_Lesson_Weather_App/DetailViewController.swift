@@ -30,6 +30,8 @@ final class DetailViewController: UIViewController {
         let manager: ComplexManager = ComplexManager()
         self.data = manager.loadCityDB(city: city_name)
         
+        self.navigationItem.title = city_name
+        
         if self.data.count > 0 {
             
             self.weather = self.data[0].tempList.last!
@@ -97,20 +99,21 @@ final class DetailViewController: UIViewController {
     
     @IBAction func RefreshAction(_ sender: Any) {
         
-        self.dismiss(animated: true, completion: nil)
+        _ = navigationController?.popViewController(animated: true)
     }
     
     
     @IBAction func openHistoryTableAction(_ sender: UIButton) {
         
-        openViewController(city: self.city_name)
+    
     }
     
-    func openViewController(city: String) {
-        
-        let destVC: HistoryTable = storyboard?.instantiateViewController(withIdentifier: "HistoryTable") as! HistoryTable
-        destVC.city = city
-        self.present(destVC, animated: true, completion: nil)
-    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "History" {
+            let destVC: HistoryTable = segue.destination as! HistoryTable
+            destVC.city = self.city_name
+            
+        }
+    }
 }
